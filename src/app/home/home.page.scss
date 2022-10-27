@@ -88,13 +88,19 @@ ion-content {
   }
 
   ion-slides{
-    height: 22vh;
-
+    height: 150px;
+    ion-slide{
+      img {
+        margin-right: 15px;
+        margin-left: 15px;
+      }
+    }
   }
 
   .Slides{
     position: absolute;
     top: 22vh;
+
   }
   ion-grid.Grid1{
     position: relative;
