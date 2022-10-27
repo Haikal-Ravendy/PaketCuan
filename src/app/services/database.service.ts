@@ -10,15 +10,6 @@ export class DatabaseService {
 
   constructor(private platform: Platform) { }
 
-  async ready() {
-    try {
-      await getConnection();
-    } catch (e) {
-      console.log('Connection not established!', e);
-      await this.createConnection();
-    }
-  }
-
   private createConnection() {
     let dbOptions: ConnectionOptions;
 
@@ -38,11 +29,21 @@ export class DatabaseService {
 
     Object.assign(dbOptions, {
       logging: ['error', 'query', 'schema'],
-      synchronize: true,
+      synchronize: false,
       entities: [
         Account
       ]
     });
     return createConnection(dbOptions);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  async ready() {
+    try {
+      await getConnection();
+    } catch (e) {
+      console.log('Connection not established!', e);
+      await this.createConnection();
+    }
   }
 }
