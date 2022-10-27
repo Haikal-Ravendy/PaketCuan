@@ -36,6 +36,7 @@ export class HomePage {
     autoplay: true,
   };
 
+  removed = this.transactions.splice(0,2);
   constructor() {}
 
 }
