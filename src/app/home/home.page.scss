@@ -35,6 +35,7 @@ ion-content {
 
   ion-row {
     ion-col{
+
       ion-label{
         font-size: 1.4rem;
       }
@@ -61,7 +62,8 @@ ion-content {
       font-weight: bold;
     }
     ion-card{
-      box-shadow: -1px 11px 13px -6px rgb(74, 82, 82);
+      box-shadow: -1px 11px 13px -6px rgb(9, 121, 24);
+      border: 1px solid rgb(19, 211, 45);
       border-radius: 10px !important;
       margin: 8px 0;
 
@@ -107,5 +109,11 @@ ion-content {
     top: -90px;
     left: 1px;
     width:96vw;
+  }
+  .RGB{
+    background-color: linear-gradient(90deg, var(--ion-color-success)10%,var(--ion-color-danger)100%);
+  }
+  .Sayap{
+    color:rgb(241, 241, 241);
   }
 }

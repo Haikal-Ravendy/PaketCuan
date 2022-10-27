@@ -17,7 +17,7 @@
       <ion-card-title class="ion-text-center"> Register </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form (ngSubmit)="submit()">
+      <form>
         <ion-item lines="full">
           <ion-label position="floating">Username</ion-label>
           <ion-input type="text" [(ngModel)]="username" name="username" required></ion-input>
@@ -36,7 +36,7 @@
         <ion-grid>
           <ion-row>
             <ion-col class="ion-padding">
-              <ion-button type="submit" color="primary" expand="block">Register</ion-button>
+              <ion-button type="submit" color="primary" expand="block" (click)="submit()">Register</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
