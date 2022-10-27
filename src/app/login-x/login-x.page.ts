@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-x',
@@ -10,7 +11,7 @@ export class LoginXPage implements OnInit {
   username: string;
   password: string;
 
-  constructor() {
+  constructor(private router: Router) {
     this.username = '';
     this.password = '';
    }
@@ -23,6 +24,7 @@ export class LoginXPage implements OnInit {
     console.log('password: ', this.password);
     this.username = '';
     this.password = '';
+    this.router.navigateByUrl('home');
 
   }
 

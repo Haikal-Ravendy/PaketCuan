@@ -32,7 +32,7 @@ export class HomePage {
   ];
 
   slideOpt = {
-    slidesPerView: 1.25,
+    slidesPerView: 1,
     autoplay: true,
   };
 
