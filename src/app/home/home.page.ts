@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  isClicked = false;
   features = [
     {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: ''},
     {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: ''},
@@ -32,15 +33,23 @@ export class HomePage {
   ];
 
   slideOpt = {
-    slidesPerView: 1.25,
+    slidesPerView: 1,
     autoplay: true,
   };
 
-  removed = this.transactions.splice(0,2);
+
+  temp = this.transactions;
+
+  removed = this.temp.splice(0,2);
   constructor() {}
 
   onClicked(){
-    this.transactions
+    console.log("transaction 1", this.transactions);
+    if(!this.isClicked){
+      this.removed = this.transactions;
+      this.isClicked = true;
+    }
+
   }
 
 }
