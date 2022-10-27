@@ -7,8 +7,26 @@ ion-header {
 
       ion-avatar{
         background: white;
+        ion-popover{
+          ng-template{
+            ion-content{
+              color: aqua;
+              padding-top: 10px;
+
+            }
+          }
+
+
+        }
+
+
       }
   }
+}
+.Head{
+  color: aqua;
+   padding-top: 10px;
+
 }
 
 div.slide{
