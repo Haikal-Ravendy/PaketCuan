@@ -4,16 +4,17 @@
       <ion-icon slot="icon-only" name="menu"></ion-icon>
     </ion-button>
     <ion-avatar slot="end" id="click-trigger">
-      <ion-popover trigger="click-trigger" triggerAction="click">
-        <ng-template>
-          <ion-content class="ion-padding" class="ion-text-center">{{account.name}}</ion-content>
-          <ion-button color="danger" fill="clear" href="login" >LOGOUT </ion-button>
-        </ng-template>
-      </ion-popover>
+
         <img [src]="account.avatar"/>
     </ion-avatar>
   </ion-item>
 </ion-header>
+<ion-popover style="padding-top: 10px;" trigger="click-trigger" triggerAction="click">
+  <ng-template>
+    <ion-label class="Head" class="ion-padding" class="ion-text-center">{{account.name}}</ion-label>
+    <ion-button color="danger" fill="clear" href="login" >LOGOUT </ion-button>
+  </ng-template>
+</ion-popover>
 
 <ion-content [fullscreen]="true">
 
@@ -56,22 +57,26 @@
         </ion-col>
      </ion-row>
 
-     <ion-row>
-      <ion-col size="6" *ngFor="let menu of features">
-        <ion-card class="ion-text-center" class="RGB" lines="full" (click)="goToFeature(menu.page,account)">
-          <ion-card-header>
-            <div align="center">
-              <ion-thumbnail>
-                <img [src]="menu.icon"/>
-              </ion-thumbnail>
-            </div>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-label color="dark">{{ menu.name }}</ion-label>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-     </ion-row>
+     <ion-slides [options]="slideOpt">
+      <ion-slide *ngFor="let hot of promos">
+        <ion-row>
+          <ion-slide size="6" *ngFor="let menu of features">
+            <ion-card class="ion-text-center" class="RGB" lines="full" (click)="goToFeature(menu.page,account)">
+              <ion-card-header>
+                <div align="center">
+                  <ion-thumbnail>
+                    <img [src]="menu.icon"/>
+                  </ion-thumbnail>
+                </div>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-label color="dark">{{ menu.name }}</ion-label>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-row>
+      </ion-slide>
+    </ion-slides>
 
 
      <ion-list>
