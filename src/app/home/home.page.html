@@ -6,11 +6,11 @@
     <ion-avatar slot="end" id="click-trigger">
       <ion-popover trigger="click-trigger" triggerAction="click">
         <ng-template>
-          <ion-content class="ion-padding" class="ion-text-center">Nama here</ion-content>
+          <ion-content class="ion-padding" class="ion-text-center">{{account.name}}</ion-content>
           <ion-button color="danger" fill="clear" href="login" >LOGOUT </ion-button>
         </ng-template>
       </ion-popover>
-        <img src="assets/icon/avatar.png"/>
+        <img [src]="account.avatar"/>
     </ion-avatar>
   </ion-item>
 </ion-header>

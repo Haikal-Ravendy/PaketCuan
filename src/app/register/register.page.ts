@@ -47,7 +47,7 @@ export class RegisterPage implements OnInit {
     // this.password = '';
     // this.avatar = '';
 
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/login');
   }
 
   async takeImage() {
