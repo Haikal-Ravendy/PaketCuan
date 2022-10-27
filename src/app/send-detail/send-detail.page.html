@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-      <ion-button fill="clear" href="home">
+      <ion-button fill="clear" (click)="goBack()">
         <ion-icon color="dark" slot="icon-only" name="chevron-back-circle-outline"></ion-icon>
       </ion-button>
   </ion-toolbar>
@@ -34,5 +34,5 @@
   </ion-card>
 </ion-content>
 <ion-footer class="ion-no-border">
-  <ion-button style="margin: 15px 15px;" type="submit" expand="block">Send</ion-button>
+  <ion-button color="light" style="margin: 15px 15px;" type="submit" expand="block">Send</ion-button>
 </ion-footer>

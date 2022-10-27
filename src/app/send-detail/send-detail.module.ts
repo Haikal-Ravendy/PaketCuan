@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PayDetailPageRoutingModule } from './pay-detail-routing.module';
+import { PayDetailPageRoutingModule } from './send-detail-routing.module';
 
-import { PayDetailPage } from './pay-detail.page';
+import { PayDetailPage } from './send-detail.page';
 
 @NgModule({
   imports: [
