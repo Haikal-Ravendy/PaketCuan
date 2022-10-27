@@ -39,4 +39,8 @@ export class HomePage {
   removed = this.transactions.splice(0,2);
   constructor() {}
 
+  onClicked(){
+    this.transactions
+  }
+
 }

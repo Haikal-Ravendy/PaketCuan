@@ -13,14 +13,6 @@
 
     <div class="main-header"></div>
 
-
-      <ion-slides [options]="slideOpt">
-        <ion-slide *ngFor="let promo of promos">
-          <img [src]="promo" alt="">
-        </ion-slide>
-      </ion-slides>
-
-
     <ion-grid>
       <ion-row>
         <ion-col size="6">
@@ -39,7 +31,15 @@
         </ion-button>
       </ion-col>
      </ion-row>
+     </ion-grid>
 
+     <ion-slides [options]="slideOpt" class="Slides">
+      <ion-slide *ngFor="let promo of promos">
+        <img [src]="promo" alt="">
+      </ion-slide>
+    </ion-slides>
+
+     <ion-grid class="Grid1">
      <ion-row class="ion-margin-top">
         <ion-col>
           <ion-text class="ion-margin-start" color="light">
@@ -83,6 +83,7 @@
               <strong>{{trans.amount}}</strong>
           </ion-text>
         </ion-item>
-     </ion-list>
+      </ion-list>
+      <ion-icon name="chevron-down-outline"></ion-icon>
     </ion-grid>
 </ion-content>

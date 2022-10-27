@@ -82,8 +82,24 @@ ion-content {
     }
   }
 
+  ion-icon{
+    font-size: 30px;
+
+  }
+
   ion-slides{
     height: 150px;
 
+  }
+
+  .Slides{
+    position: absolute;
+    top: 22vh;
+  }
+  ion-grid.Grid1{
+    position: relative;
+    top: -114px;
+    left: 1px;
+    width:96vw;
   }
 }
