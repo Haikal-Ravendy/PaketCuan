@@ -1,0 +1,11 @@
+ion-header {
+  ion-toolbar{
+    --background: linear-gradient(90deg, #ffc20e 10%,#e25826 100%);
+  }
+}
+
+ion-footer {
+  ion-button {
+    --background: linear-gradient(90deg, var(--ion-color-primary)10%,var(--ion-color-primary)100%);
+  }
+}

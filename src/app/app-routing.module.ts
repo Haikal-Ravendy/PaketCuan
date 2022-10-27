@@ -19,6 +19,11 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'pay-detail',
+    loadChildren: () => import('./pay-detail/pay-detail.module').then( m => m.PayDetailPageModule)
+  },
+
 
 ];
 
