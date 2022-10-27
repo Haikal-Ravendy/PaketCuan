@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Account } from 'src/entities/account';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomePage {
   features = [
     {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: ''},
     {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: ''},
-    {id: 3, name: 'SEND', icon: 'assets/icons/send.png',page: ''},
+    {id: 3, name: 'SEND', icon: 'assets/icons/send.png',page: 'send-detail'},
     {id: 4, name: 'PAY', icon: 'assets/icons/debit-card.png',page: ''}
   ];
 
@@ -47,6 +48,10 @@ export class HomePage {
     this.account = this.router.getCurrentNavigation().extras.state;
     console.log(this.account);
 
+  }
+
+  goToFeature(url: string, account: Account){
+    this.router.navigateByUrl(url,{state:account});
   }
 
   onClicked(){
