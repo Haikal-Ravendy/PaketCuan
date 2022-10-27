@@ -1,12 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="primary">
-      <ion-button color="danger" href="login" class="backbutton">
-        <ion-icon name="arrow-back-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+<ion-header  class="ion-no-border">
+  <ion-toolbar lines="none">
+    <ion-button fill="clear" color="light">
+      <ion-icon color="dark" slot="icon-only" name="chevron-back-circle-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
+
+<!-- <ion-header class="ion-no-border">
+  <ion-toolbar>
+      <ion-button fill="clear" href="login">
+        <ion-icon color="dark" slot="icon-only" name="chevron-back-circle-outline"></ion-icon>
+      </ion-button>
+  </ion-toolbar>
+</ion-header> -->
 
 <ion-content>
   <div class="main-header"></div>
@@ -31,7 +37,11 @@
           <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
         </ion-item>
         <ion-col class="ion-padding">
-          <ion-button type="submit" color="success" expand="block" (click)="takeImage()">Take Profile Picture</ion-button>
+          <div align="center">
+          <ion-button type="submit" color="warning" (click)="takeImage()">
+            <ion-icon slot="icon-only" name="camera-outline"></ion-icon>&nbsp;
+            Take Picture</ion-button>
+          </div>
         </ion-col>
         <ion-grid>
           <ion-row>

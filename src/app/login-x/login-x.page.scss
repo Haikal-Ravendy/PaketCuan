@@ -11,14 +11,4 @@ ion-content {
   ion-card{
     margin-top: -40vh;
   }
-
-  .main-footer{
-    height:1000px;
-    width:1000px;
-    border-radius: 50%;
-    background-color: linear-gradient(90deg, var(--ion-color-success)10%,var(--ion-color-danger)100%);
-    position: absolute;
-    bottom: 10px;
-    left: 1px;
-  }
 }

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PayDetailPage } from './pay-detail.page';
+import { PayDetailPage } from './send-detail.page';
 
 describe('PayDetailPage', () => {
   let component: PayDetailPage;
