@@ -3,8 +3,14 @@
     <ion-button fill="clear" color="light">
       <ion-icon slot="icon-only" name="menu"></ion-icon>
     </ion-button>
-    <ion-avatar slot="end">
-      <img src="assets/icon/avatar.png"/>
+    <ion-avatar slot="end" id="click-trigger">
+      <ion-popover trigger="click-trigger" triggerAction="click">
+        <ng-template>
+          <ion-content class="ion-padding" class="ion-text-center">Nama here</ion-content>
+          <ion-button color="danger" fill="clear" href="login" >LOGOUT </ion-button>
+        </ng-template>
+      </ion-popover>
+        <img src="assets/icon/avatar.png"/>
     </ion-avatar>
   </ion-item>
 </ion-header>
@@ -44,7 +50,7 @@
      <ion-grid class="Grid1">
      <ion-row class="ion-margin-top">
         <ion-col>
-          <ion-text class="ion-margin-start" color="light">
+          <ion-text class="ion-margin-start" class="Sayap">
             All Features
           </ion-text>
         </ion-col>
@@ -52,7 +58,7 @@
 
      <ion-row>
       <ion-col size="6" *ngFor="let menu of features">
-        <ion-card class="ion-text-center">
+        <ion-card class="ion-text-center" class="RGB" lines="full">
           <ion-card-header>
             <div align="center">
               <ion-thumbnail>
@@ -90,4 +96,5 @@
       <ion-icon [name]="isClicked? 'chevron-up-outline': 'chevron-down-outline'" (click)='onClicked()'></ion-icon>
       </div>
     </ion-grid>
+
 </ion-content>

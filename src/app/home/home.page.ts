@@ -43,11 +43,12 @@ export class HomePage {
   removed = this.temp.splice(0,2);
   constructor() {}
 
-  onClicked(){
+  async onClicked(){
     console.log("transaction 1", this.transactions);
     if(!this.isClicked){
-      this.removed = this.transactions;
-      this.isClicked = true;
+      return this.transactions;
+    }else{
+
     }
 
   }
