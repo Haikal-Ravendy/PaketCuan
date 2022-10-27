@@ -9,7 +9,7 @@ import { Account } from 'src/entities/account';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  isClicked = false;
+  isClicked ;
   features = [
     {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: ''},
     {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: ''},
@@ -39,7 +39,7 @@ export class HomePage {
     {id: 2, name:'OYO Tendean', time: '2:00PM', amount: 'Rp.500.000',color:'success'}
   ];
 
- fuck = [];
+ view = [];
 
   slideOpt = {
     slidesPerView: 1,
@@ -56,6 +56,8 @@ export class HomePage {
   constructor(private router: Router) {
     this.account = this.router.getCurrentNavigation().extras.state;
     console.log(this.account);
+    this.sample = true;
+    this.view = this.removed;
 
   }
 
@@ -68,12 +70,12 @@ export class HomePage {
     if(this.sample === false){
       console.log('false', this.sample);
       this.sample = true;
-     this.fuck = this.removed;
+     this.view = this.removed;
 
     }else if (this.sample === true){
       console.log('true', this.sample);
       this.sample = false;
-      this.fuck = this.transactions;
+      this.view = this.transactions;
     }
 
   }
