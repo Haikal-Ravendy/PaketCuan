@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -37,14 +38,19 @@ export class HomePage {
     autoplay: true,
   };
 
+  account: any;
 
   temp = this.transactions;
 
   removed = this.temp.splice(0,2);
-  constructor() {}
+  constructor(private router: Router) {
+    this.account = this.router.getCurrentNavigation().extras.state;
+    console.log(this.account);
+
+  }
 
   onClicked(){
-    console.log("transaction 1", this.transactions);
+    console.log('transaction 1', this.transactions);
     if(!this.isClicked){
       this.removed = this.transactions;
       this.isClicked = true;

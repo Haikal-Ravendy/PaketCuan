@@ -4,7 +4,7 @@
       <ion-icon slot="icon-only" name="menu"></ion-icon>
     </ion-button>
     <ion-avatar slot="end">
-      <img src="assets/icon/avatar.png"/>
+      <img [src]="account.avatar"/>
     </ion-avatar>
   </ion-item>
 </ion-header>
@@ -18,7 +18,7 @@
         <ion-col size="6">
           <ion-label color="light" class="ion-margin-start">
             Saldo
-            <ion-chip color="light">Rp500,000,000</ion-chip>
+            <ion-chip color="light">Rp{{account.balance.toLocaleString('de-DE')}}</ion-chip>
           </ion-label>
         </ion-col>
 
