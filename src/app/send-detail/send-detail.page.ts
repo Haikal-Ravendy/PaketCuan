@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-send-detail',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PayDetailPage implements OnInit {
 
+  icon = 'chevron-back-circle-outline';
   cardNumber: number;
   amount: number;
-  constructor() { }
+  constructor(
+    private location: Location
+  ) { }
 
   ngOnInit() {
   }
@@ -17,4 +21,9 @@ export class PayDetailPage implements OnInit {
   submit() {
     //
   }
+
+  goBack(): void {
+    this.location.back();
+  }
+
 }
