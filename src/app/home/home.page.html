@@ -78,7 +78,7 @@
         <ion-list-header>
           <ion-label> RECENT TRANSACTION</ion-label>
         </ion-list-header>
-        <ion-item lines="none" *ngFor="let trans of removed">
+        <ion-item lines="none" *ngFor="let trans of view">
           <ion-icon slot="start" name="cash"
           color="success"></ion-icon>
           <ion-label class="ion-text-wrap">
@@ -93,7 +93,7 @@
         </ion-item>
       </ion-list>
       <div class="ion-text-center">
-      <ion-icon [name]="isClicked? 'chevron-up-outline': 'chevron-down-outline'" (click)='onClicked()'></ion-icon>
+      <ion-icon [name]="sample? 'chevron-down-outline': 'chevron-up-outline'" (click)='onClicked()'></ion-icon>
       </div>
     </ion-grid>
 
