@@ -1,0 +1,24 @@
+ion-content {
+  .main-header{
+      margin-top: -70px;
+      margin-left: -14vh;
+      height: 60vh;
+      width: 150%;
+      background: linear-gradient(90deg, var(--ion-color-success)10%,var(--ion-color-danger)100%);
+      border-radius: 0 0 50% 50% ;
+  }
+
+  ion-card{
+    margin-top: -40vh;
+  }
+
+  .main-footer{
+    height:1000px;
+    width:1000px;
+    border-radius: 50%;
+    background-color: linear-gradient(90deg, var(--ion-color-success)10%,var(--ion-color-danger)100%);
+    position: absolute;
+    bottom: 10px;
+    left: 1px;
+  }
+}

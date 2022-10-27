@@ -1,0 +1,7 @@
+{
+  "name": "PaketCuan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">PaketCuan</string>
+    <string name="title_activity_main">PaketCuan</string>
+    <string name="package_name">com.cuan.paketCuan</string>
+    <string name="custom_url_scheme">com.cuan.paketCuan</string>
+</resources>
