@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { shadow } from '@ionic/core/dist/types/utils/transition/ios.transition';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,12 @@ export class HomePage {
     {id: 4, name:'Hedon', time: '7:00PM', amount: 'Rp.5.000.0000.000',color:'danger'},
     {id: 5, name:'PKS', time: '9:00PM', amount: 'Rp.5.000',color:'danger'},
   ];
+  removed = [
+    {id: 1, name:'Coffe Bang', time: '3:00PM', amount: 'Rp.25.000',color:'danger'},
+    {id: 2, name:'OYO Tendean', time: '2:00PM', amount: 'Rp.500.000',color:'success'}
+  ];
+
+ fuck = [];
 
   slideOpt = {
     slidesPerView: 1,
@@ -41,8 +48,10 @@ export class HomePage {
   account: any;
 
   temp = this.transactions;
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+  sample: boolean = false;
 
-  removed = this.temp.splice(0,2);
+
   constructor(private router: Router) {
     this.account = this.router.getCurrentNavigation().extras.state;
     console.log(this.account);
@@ -51,11 +60,20 @@ export class HomePage {
 
   onClicked(){
     console.log('transaction 1', this.transactions);
-    if(!this.isClicked){
-      return this.transactions;
-    }else{
+    if(this.sample === false){
+      console.log('false', this.sample);
+      this.sample = true;
+     this.fuck = this.removed;
 
+    }else if (this.sample === true){
+      console.log('true', this.sample);
+      this.sample = false;
+      this.fuck = this.transactions;
     }
+
+  }
+
+  showButton(){
 
   }
 
