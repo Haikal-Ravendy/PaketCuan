@@ -1,4 +1,4 @@
-<ion-header  class="ion-no-border">
+<ion-header class="ion-no-border">
   <ion-item lines="none">
     <ion-button fill="clear" color="light" (click)="goToDetail()">
       <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
@@ -10,62 +10,49 @@
 </ion-header>
 <ion-popover style="padding-top: 10px;" trigger="click-trigger" triggerAction="click" alignment="center">
   <ng-template>
-    <ion-label class="Head" class="ion-padding" class="ion-text-center">{{account.name}}</ion-label>
-    <ion-button color="danger" fill="clear" href="login" >LOGOUT </ion-button>
+    <ion-button fill="clear" class="Head" class="ion-text-center">{{account.name}}</ion-button>
+    <ion-button color="danger" fill="clear" href="login">LOGOUT </ion-button>
   </ng-template>
 </ion-popover>
 
 <ion-content [fullscreen]="true">
 
-    <div class="main-header"></div>
+  <div class="main-header"></div>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col size="6">
-          <ion-label color="light" class="ion-margin-start">
-            Saldo
-            <ion-chip color="light">Rp{{account.balance.toLocaleString('de-DE')}}</ion-chip>
-          </ion-label>
-        </ion-col>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-label color="light" class="ion-margin-start">
+          Saldo
+          <ion-chip color="light">Rp{{account.balance.toLocaleString('de-DE')}}</ion-chip>
+        </ion-label>
+      </ion-col>
 
-        <ion-col size="6" class="ion-text-right">
-        <ion-button color="light" (click)="goToFeature('top-up-detail')" >
-          <ion-text >
-          Top Up
+      <ion-col size="6" class="ion-text-right">
+        <ion-button color="light" (click)="goToFeature('top-up-detail')">
+          <ion-text>
+            Top Up
           </ion-text>
           <ion-icon slot="end" name="add"></ion-icon>
         </ion-button>
       </ion-col>
-     </ion-row>
-     </ion-grid>
+    </ion-row>
 
-      <ion-slides class="Slides">
-        <ion-slide>
-          <img [src]="promos[0]" alt="" />
-        </ion-slide>
-      </ion-slides>
+    <ion-row class="ion-margin-top">
+      <ion-col>
+        <ion-text class="ion-margin-start" class="Sayap">
+          All Features
+        </ion-text>
+      </ion-col>
+    </ion-row>
 
-      <!-- <img class="Slides"[src]="promos[0]" alt="" /> -->
-
-     <ion-grid class="Grid1">
-     <ion-row class="ion-margin-top">
-        <ion-col>
-          <ion-text class="ion-margin-start" class="Sayap">
-            All Features
-          </ion-text>
-        </ion-col>
-     </ion-row>
-
-
-     <ion-slides [options]="slideOpt">
-
-     <ion-row>
+    <ion-row>
       <ion-col size="6" *ngFor="let menu of features">
-        <ion-card class="ion-text-center" class="RGB" lines="full" (click)="menu.page !== 'ke-camera' ? goToFeature(menu.page) : takeImage()">
+        <ion-card class="ion-text-center" (click)="menu.page !== 'ke-camera' ? goToFeature(menu.page) : takeImage()">
           <ion-card-header>
             <div align="center">
               <ion-thumbnail>
-                <img [src]="menu.icon"/>
+                <img [src]="menu.icon" />
               </ion-thumbnail>
             </div>
           </ion-card-header>
@@ -74,31 +61,28 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-     </ion-row>
-    </ion-slides>
+    </ion-row>
 
-
-     <ion-list>
-        <ion-list-header>
-          <ion-label> RECENT TRANSACTION</ion-label>
-        </ion-list-header>
-        <ion-item lines="none" *ngFor="let trans of view">
-          <ion-icon slot="start" name="cash"
-          color="success"></ion-icon>
-          <ion-label class="ion-text-wrap">
-            {{trans.name}}
-            <p>
-               {{trans.time}}
-            </p>
-          </ion-label>
-          <ion-text slot="end" [color]="trans.color">
-              <strong>Rp. {{trans.amount.toLocaleString('de-DE')}}</strong>
-          </ion-text>
-        </ion-item>
-      </ion-list>
-      <div class="ion-text-center">
+    <ion-list>
+      <ion-list-header>
+        <ion-label> RECENT TRANSACTION</ion-label>
+      </ion-list-header>
+      <ion-item lines="none" *ngFor="let trans of view">
+        <ion-icon slot="start" name="cash" color="success"></ion-icon>
+        <ion-label class="ion-text-wrap">
+          {{trans.name}}
+          <p>
+            {{trans.time}}
+          </p>
+        </ion-label>
+        <ion-text slot="end" [color]="trans.color">
+          <strong>Rp. {{trans.amount.toLocaleString('de-DE')}}</strong>
+        </ion-text>
+      </ion-item>
+    </ion-list>
+    <div class="ion-text-center">
       <ion-icon [name]="sample? 'chevron-down-outline': 'chevron-up-outline'" (click)='onClicked()'></ion-icon>
-      </div>
-    </ion-grid>
+    </div>
+  </ion-grid>
 
 </ion-content>
