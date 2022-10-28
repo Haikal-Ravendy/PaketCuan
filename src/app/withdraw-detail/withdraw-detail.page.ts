@@ -54,24 +54,68 @@ export class WithdrawDetailPage implements OnInit {
       ]
     });
     await alert.present();
-    alert.onDidDismiss().then(data => {
+    alert.onDidDismiss().then(async data => {
       const pwd = data.data.values[0];
       if(this.account.password !== pwd){
-        //
+        await this.pwdWrongAlert();
+      }
+      else{
+        if(this.amount > this.account.balance){
+          await this.balanceIsInsufficient();
+        }
+        else{
+          this.account.balance -= this.amount;
+          const times = this.formatTime(new Date());
+          const history = {name: 'Top up', time: times, amount: this.amount,color: 'success'};
+          if(this.account.history.length === 0){
+
+            const histories = [history];
+            this.account.history = JSON.stringify(histories);
+
+          }
+          else{
+            const histories = JSON.parse(this.account.history);
+            histories.push(history);
+            this.account.history = JSON.stringify(histories);
+
+          }
+          this.accountService.insertOrUpdate(this.account);
+          this.router.navigateByUrl('home',{state:this.account});
+        }
       }
 
     });
   }
 
+  formatTime(date: Date){
+    let hour = date.getHours();
+    let minutes: string|number = date.getMinutes();
+    const ampm = hour > 12 ? 'pm' : 'am';
+    hour = hour % 12;
+    hour = hour ? hour : 12;
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    const strTime = hour + ':' + minutes + ' ' + ampm;
+    return strTime;
+  }
+
   async pwdWrongAlert(){
     const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Important message',
-      message: 'This is an alert!',
+      header: 'Password salah!',
+      message: 'Password yang diinput salah',
       buttons: ['OK'],
     });
 
     await alert.present();
+}
+
+async balanceIsInsufficient(){
+  const alert = await this.alertController.create({
+    header: 'Balance tidak mencukupi!',
+    message: 'Balance tidak mencukupi',
+    buttons: ['OK'],
+  });
+
+  await alert.present();
 }
 }
 
