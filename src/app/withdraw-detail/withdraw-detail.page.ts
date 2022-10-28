@@ -14,6 +14,10 @@ export class WithdrawDetailPage implements OnInit {
   icon = 'chevron-back-circle-outline';
   amount: number;
   account: any;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  DECIMAL_SEPARATOR='.';
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  GROUP_SEPARATOR=',';
   constructor(
     private location: Location,
     private router: Router,
@@ -32,6 +36,7 @@ export class WithdrawDetailPage implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
 
   async presentAlert() {
     const alert = await this.alertController.create({
@@ -66,7 +71,7 @@ export class WithdrawDetailPage implements OnInit {
         else{
           this.account.balance -= this.amount;
           const times = this.formatTime(new Date());
-          const history = {name: 'Top up', time: times, amount: this.amount,color: 'success'};
+          const history = {name: 'Withdraw money with the amount of ' + this.amount, time: times, amount: this.amount,color: 'success'};
           if(this.account.history.length === 0){
 
             const histories = [history];
