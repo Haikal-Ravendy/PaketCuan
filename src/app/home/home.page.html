@@ -1,7 +1,7 @@
 <ion-header  class="ion-no-border">
   <ion-item lines="none">
-    <ion-button fill="clear" color="light">
-      <ion-icon name="settings-outline" (click)="goToDetail()"></ion-icon>
+    <ion-button fill="clear" color="light" (click)="goToDetail()">
+      <ion-icon name="settings-outline" ></ion-icon>
     </ion-button>
     <ion-avatar slot="end" id="click-trigger">
 
@@ -57,6 +57,9 @@
         </ion-col>
      </ion-row>
 
+
+     <ion-slides [options]="slideOpt">
+
      <ion-row>
       <ion-col size="6" *ngFor="let menu of features">
         <ion-card class="ion-text-center" class="RGB" lines="full" (click)="goToFeature(menu.page,account)">
@@ -73,6 +76,7 @@
         </ion-card>
       </ion-col>
      </ion-row>
+    </ion-slides>
 
 
      <ion-list>

@@ -10,6 +10,7 @@ import { Account } from 'src/entities/account';
 })
 export class HomePage implements OnInit {
   isClicked ;
+
   features = [
     {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: 'top-up-detail'},
     {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: 'withdraw-detail'},
@@ -44,7 +45,7 @@ export class HomePage implements OnInit {
   sample: boolean = false;
 
 
-  constructor(private router: Router, private accountService: AccountService) {
+  constructor(private router: Router) {
     this.account = this.router.getCurrentNavigation().extras.state;
     console.log(this.account);
     this.sample = true;

@@ -2,3 +2,28 @@ ion-avatar{
   height: 12px;
   width: 12px;
 }
+ion-header {
+  background: transparent;
+
+  ion-item{
+    --background: transparent;
+
+
+      ion-avatar{
+        background: white;
+        ion-popover{
+          ng-template{
+            ion-content{
+              color: aqua;
+              padding-top: 10px;
+
+            }
+          }
+
+
+        }
+
+
+      }
+  }
+}
