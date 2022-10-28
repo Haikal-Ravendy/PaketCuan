@@ -11,6 +11,8 @@ export class TopUpModalComponent {
   value: number;
 
 
+  amount: number;
+
   constructor(private modalCtrl: ModalController) {}
 
   cancel() {

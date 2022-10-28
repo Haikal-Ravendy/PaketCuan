@@ -1,7 +1,7 @@
 <ion-header  class="ion-no-border">
   <ion-item lines="none">
     <ion-button fill="clear" color="light">
-      <ion-icon slot="icon-only" name="menu"></ion-icon>
+      <ion-icon name="settings-outline" (click)="goToDetail()"></ion-icon>
     </ion-button>
     <ion-avatar slot="end" id="click-trigger">
 
@@ -40,13 +40,13 @@
      </ion-row>
      </ion-grid>
 
-     <ion-slides class="Slides">
-      <ion-slide>
-        <img [src]="promos[0]" alt="" />
-      </ion-slide>
-    </ion-slides>
+      <ion-slides class="Slides">
+        <ion-slide>
+          <img [src]="promos[0]" alt="" />
+        </ion-slide>
+      </ion-slides>
 
-    <!-- <img class="Slides"[src]="promos[0]" alt="" /> -->
+      <!-- <img class="Slides"[src]="promos[0]" alt="" /> -->
 
      <ion-grid class="Grid1">
      <ion-row class="ion-margin-top">

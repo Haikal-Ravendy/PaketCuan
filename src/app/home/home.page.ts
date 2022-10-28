@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { shadow } from '@ionic/core/dist/types/utils/transition/ios.transition';
 import { Account } from 'src/entities/account';
-import { AccountService } from '../services/dao/account.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +12,7 @@ export class HomePage implements OnInit {
   isClicked ;
   features = [
     {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: 'top-up-detail'},
-    {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: ''},
+    {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: 'withdraw-detail'},
     {id: 3, name: 'SEND', icon: 'assets/icons/send.png',page: 'send-detail'},
     {id: 4, name: 'PAY', icon: 'assets/icons/debit-card.png',page: ''}
   ];
@@ -86,6 +85,12 @@ export class HomePage implements OnInit {
   goToFeature(url: string, account: Account){
     this.router.navigateByUrl(url,{state:account});
   }
+
+  goToDetail(){
+    this.router.navigate(['account-detail']);
+  }
+
+
 
   onClicked(){
     console.log('transaction 1', this.transactions);
