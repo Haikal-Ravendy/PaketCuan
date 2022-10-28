@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Account } from 'src/entities/account';
 
 @Component({
   selector: 'app-top-up-modal',
@@ -7,6 +8,8 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./top-up-modal.component.scss'],
 })
 export class TopUpModalComponent {
+  value: number;
+
 
   amount: number;
 
@@ -17,6 +20,6 @@ export class TopUpModalComponent {
   }
 
   confirm() {
-
-    }
+    this.modalCtrl.dismiss(this.value);
   }
+}

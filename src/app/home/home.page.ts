@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Camera, CameraResultType } from '@capacitor/camera';
 import { shadow } from '@ionic/core/dist/types/utils/transition/ios.transition';
 import { Account } from 'src/entities/account';
+import { AccountService } from '../services/dao/account.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +17,7 @@ export class HomePage implements OnInit {
     {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: 'top-up-detail'},
     {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: 'withdraw-detail'},
     {id: 3, name: 'SEND', icon: 'assets/icons/send.png',page: 'send-detail'},
-    {id: 4, name: 'PAY', icon: 'assets/icons/debit-card.png',page: ''}
+    {id: 4, name: 'PAY', icon: 'assets/icons/debit-card.png',page: 'ke-camera'}
   ];
 
 
@@ -83,12 +85,12 @@ export class HomePage implements OnInit {
 
   }
 
-  goToFeature(url: string, account: Account){
-    this.router.navigateByUrl(url,{state:account});
+  goToFeature(url: string,){
+    this.router.navigateByUrl(url,{state:this.account});
   }
 
   goToDetail(){
-    this.router.navigate(['account-detail']);
+    this.router.navigateByUrl('account-detail',{state:this.account});
   }
 
 
@@ -110,6 +112,20 @@ export class HomePage implements OnInit {
 
   showButton(){
 
+  }
+
+  async takeImage() {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Base64
+    });
+
+    console.log('Result Image', image.base64String);
+    // // Set avatar value to contact form
+    // this.contactForm.get('avatar').setValue(this.avatar);
+
+    // this.cdr.detectChanges();
   }
 
 }

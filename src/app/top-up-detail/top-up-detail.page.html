@@ -37,9 +37,9 @@
 <ion-content>
   <form>
     <div align="center">
-      <ion-button type="ion-button" color="warning" (click)="openModal()">
+      <ion-button type="ion-button" color="warning" (click)="openModal()" style="font-weight: bold;">
         <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>&nbsp;
-        Or, type the amount</ion-button>
+        {{isModalValue ? 'Rp.' + value.toLocaleString('de-DE') : 'Or, type the amount'}}</ion-button>
     </div>
   </form>
 </ion-content>

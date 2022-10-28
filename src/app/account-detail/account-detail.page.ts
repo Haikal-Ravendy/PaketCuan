@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../services/dao/account.service';
 import { Account } from 'src/entities/account';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-detail',
@@ -10,7 +11,9 @@ import { Account } from 'src/entities/account';
 export class AccountDetailPage implements OnInit {
   account: any;
 
-  constructor() { }
+  constructor(private router: Router) {
+    this.account = this.router.getCurrentNavigation().extras.state;
+  }
 
   ngOnInit() {
   }

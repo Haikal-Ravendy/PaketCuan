@@ -6,6 +6,7 @@ import { ComponentsModule } from '../components/components.module';
 import { TopUpModalComponent } from '../components/top-up-modal/top-up-modal.component';
 import { Router } from '@angular/router';
 import { AccountService } from '../services/dao/account.service';
+import { Account } from 'src/entities/account';
 
 @Component({
   selector: 'app-top-up-detail',
@@ -27,6 +28,7 @@ export class TopUpDetailPage implements OnInit {
   balance: number;
   amount: number;
   account: any;
+  isModalValue = false;
   constructor(
     private location: Location,
     private modalCtrl: ModalController,
@@ -39,6 +41,7 @@ export class TopUpDetailPage implements OnInit {
   ngOnInit() {
   }
   selectItem(menu: any){
+    this.isModalValue = false;
     this.value = menu.value;
     this.selectedMenuId = menu.id;
   }
@@ -47,6 +50,13 @@ export class TopUpDetailPage implements OnInit {
       component: TopUpModalComponent,
     });
     modal.present();
+
+    modal.onDidDismiss().then(data => {
+      console.log('data', data);
+      this.selectedMenuId = -1;
+      this.isModalValue = true;
+      this.value = Number(data.data);
+    });
   }
 
   formatTime(date: Date){
