@@ -89,7 +89,8 @@ export class HomePage implements OnInit {
   }
 
   goToDetail(){
-    this.router.navigateByUrl('account-detail',{state:this.account});
+    console.log('on detail menu');
+    this.router.navigate(['account-detail'], {state:this.account});
   }
 
 

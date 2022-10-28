@@ -26,7 +26,9 @@ export class WithdrawDetailPage implements OnInit {
   }
 
   submit() {
-    //
+    this.account -=this.amount;
+    this.accountService.insertOrUpdate(this.account);
+    this.router.navigateByUrl('home',{state:this.account});
   }
 
   goBack(): void {
