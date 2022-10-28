@@ -4,16 +4,17 @@
       <ion-icon slot="icon-only" name="menu"></ion-icon>
     </ion-button>
     <ion-avatar slot="end" id="click-trigger">
-      <ion-popover trigger="click-trigger" triggerAction="click">
-        <ng-template>
-          <ion-content class="ion-padding" class="ion-text-center">{{account.name}}</ion-content>
-          <ion-button color="danger" fill="clear" href="login" >LOGOUT </ion-button>
-        </ng-template>
-      </ion-popover>
+
         <img [src]="account.avatar"/>
     </ion-avatar>
   </ion-item>
 </ion-header>
+<ion-popover style="padding-top: 10px;" trigger="click-trigger" triggerAction="click">
+  <ng-template>
+    <ion-label class="Head" class="ion-padding" class="ion-text-center">{{account.name}}</ion-label>
+    <ion-button color="danger" fill="clear" href="login" >LOGOUT </ion-button>
+  </ng-template>
+</ion-popover>
 
 <ion-content [fullscreen]="true">
 
