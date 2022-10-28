@@ -36,9 +36,10 @@ export class RegisterPage implements OnInit {
     newAcc.password = this.password;
     newAcc.name = this.name;
     newAcc.balance = 5000000;
-    newAcc.cardNumber = new Date().valueOf() + Math.random();
+    newAcc.cardNumber = Math.floor(new Date().valueOf() + Math.random());
     newAcc.avatar = this.avatar;
     console.log('Card Number: ' + newAcc.cardNumber);
+    newAcc.history = '';
     this.accountService.insertOrUpdate(newAcc);
     console.log('New Account is created! ' + newAcc);
 

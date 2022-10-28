@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { shadow } from '@ionic/core/dist/types/utils/transition/ios.transition';
 import { Account } from 'src/entities/account';
+import { AccountService } from '../services/dao/account.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
   isClicked ;
   features = [
     {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: 'top-up-detail'},
@@ -27,17 +28,8 @@ export class HomePage {
     'https://bankmega.com/media/filer_public/f7/8e/f78e2f4a-e2f5-4917-8b17-40e1ef9ff95d/portodormancymakan_bm01.jpg'
   ];
 
-  transactions = [
-    {id: 1, name:'Coffe Bang', time: '3:00PM', amount: 'Rp.25.000',color:'danger'},
-    {id: 2, name:'OYO Tendean', time: '2:00PM', amount: 'Rp.500.000',color:'success'},
-    {id: 3, name:'Gaji Pak Guntur', time: '5:00PM', amount: 'Rp.20.000.000.000',color:'danger'},
-    {id: 4, name:'Hedon', time: '7:00PM', amount: 'Rp.5.000.0000.000',color:'danger'},
-    {id: 5, name:'PKS', time: '9:00PM', amount: 'Rp.5.000',color:'danger'},
-  ];
-  removed = [
-    {id: 1, name:'Coffe Bang', time: '3:00PM', amount: 'Rp.25.000',color:'danger'},
-    {id: 2, name:'OYO Tendean', time: '2:00PM', amount: 'Rp.500.000',color:'success'}
-  ];
+  transactions;
+  removed;
 
  view = [];
 
@@ -48,16 +40,46 @@ export class HomePage {
 
   account: any;
 
-  temp = this.transactions;
+
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   sample: boolean = false;
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private accountService: AccountService) {
     this.account = this.router.getCurrentNavigation().extras.state;
     console.log(this.account);
     this.sample = true;
     this.view = this.removed;
+  }
+
+  async ionViewDidEnter(){
+    console.log('cek', this.account.history);
+    console.log('history type ', typeof this.account.history);
+    const hist = JSON.parse(this.account.history);
+    console.log('history dalam JSON',hist);
+    this.transactions = hist;
+
+    if(this.transactions.length <2){
+      this.removed = this.transactions;
+      console.log('removed ', this.removed);
+
+    }
+    else{
+      this.removed = this.transactions.slice(0,2);
+    }
+  }
+
+  ngOnInit(): void {
+    this.view = [];
+    const hist = JSON.parse(this.account.history);
+    hist.forEach((element,index) => {
+      if(index <2){
+        this.view.push(element);
+      }
+    });
+
+    console.log('view',this.view);
+
 
   }
 
