@@ -26,7 +26,7 @@ export class WithdrawDetailPage implements OnInit {
   }
 
   submit() {
-    //
+
   }
 
   goBack(): void {
@@ -54,5 +54,25 @@ export class WithdrawDetailPage implements OnInit {
       ]
     });
     await alert.present();
+    alert.onDidDismiss().then(data => {
+      const pwd = data.data.values[0];
+      if(this.account.password !== pwd){
+        //
+      }
+
+    });
   }
+
+  async pwdWrongAlert(){
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Important message',
+      message: 'This is an alert!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
 }
+}
+
+

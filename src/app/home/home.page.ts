@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
     {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: 'top-up-detail'},
     {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: 'withdraw-detail'},
     {id: 3, name: 'SEND', icon: 'assets/icons/send.png',page: 'send-detail'},
-    {id: 4, name: 'PAY', icon: 'assets/icons/debit-card.png',page: 'ke-camera'}
+    {id: 4, name: 'PAY', icon: 'assets/icons/barcode.png',page: 'ke-camera'}
   ];
 
 
@@ -74,11 +74,13 @@ export class HomePage implements OnInit {
   ngOnInit(): void {
     this.view = [];
     const hist = JSON.parse(this.account.history);
-    hist.forEach((element,index) => {
-      if(index <2){
-        this.view.push(element);
-      }
-    });
+    if(hist!=null){
+      hist.forEach((element,index) => {
+        if(index <2){
+          this.view.push(element);
+        }
+      });
+    }
 
     console.log('view',this.view);
 
@@ -90,7 +92,8 @@ export class HomePage implements OnInit {
   }
 
   goToDetail(){
-    this.router.navigateByUrl('account-detail',{state:this.account});
+    console.log('on detail menu');
+    this.router.navigate(['account-detail'], {state:this.account});
   }
 
 
