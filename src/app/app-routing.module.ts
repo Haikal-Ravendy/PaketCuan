@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'top-up-detail',
     loadChildren: () => import('./top-up-detail/top-up-detail.module').then( m => m.TopUpDetailPageModule)
   },
+  {
+    path: 'withdraw-detail',
+    loadChildren: () => import('./withdraw-detail/withdraw-detail.module').then( m => m.WithdrawDetailPageModule)
+  },
 
 
 

@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-      <ion-button fill="clear" (click)="goBack()">
-        <ion-icon color="dark" slot="icon-only" name="chevron-back-circle-outline"></ion-icon>
-      </ion-button>
+    <ion-button fill="clear" (click)="goBack()">
+      <ion-icon color="dark" slot="icon-only" name="chevron-back-circle-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -10,12 +10,12 @@
   <div class="main-header"></div>
   <ion-card>
     <ion-card-header>
-    <div align="center">
-      <ion-icon slot="icon-only" size="large" name="wallet-outline"></ion-icon>
-    </div>
+      <div align="center">
+        <ion-icon slot="icon-only" size="large" name="wallet-outline"></ion-icon>
+      </div>
       <ion-card-title class="ion-text-center" style="font-weight: bold;">
-         Transfer
-        </ion-card-title>
+        Transfer
+      </ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form (ngSubmit)="submit()">

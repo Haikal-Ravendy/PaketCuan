@@ -16,8 +16,6 @@ export class PayDetailPage implements OnInit {
   account: any;
   constructor(
     private location: Location,private router: Router, private accountService: AccountService) {
-    this.amount = 0;
-    this.cardNumber = 0;
     this.account = this.router.getCurrentNavigation().extras.state;
    }
 

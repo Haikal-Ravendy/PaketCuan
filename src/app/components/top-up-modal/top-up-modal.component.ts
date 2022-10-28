@@ -8,6 +8,8 @@ import { ModalController } from '@ionic/angular';
 })
 export class TopUpModalComponent {
 
+  amount: number;
+
   constructor(private modalCtrl: ModalController) {}
 
   cancel() {

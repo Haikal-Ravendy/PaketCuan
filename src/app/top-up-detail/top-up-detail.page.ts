@@ -18,7 +18,7 @@ export class TopUpDetailPage implements OnInit {
     {id: 3, name: 'Rp.100.000', icon: 'assets/icons/money3.png', page: ''},
     {id: 4, name: 'Rp.250.000', icon: 'assets/icons/money4.png', page: ''},
     {id: 5, name: 'Rp.500.000', icon: 'assets/icons/money5.png', page: ''},
-    {id: 6, name: 'Rp.999.000', icon: 'assets/icons/money6.png', page: ''},
+    {id: 6, name: 'Rp.1.000.000', icon: 'assets/icons/money6.png', page: ''},
   ];
 
   balance: number;

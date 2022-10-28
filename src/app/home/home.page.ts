@@ -11,8 +11,8 @@ import { Account } from 'src/entities/account';
 export class HomePage {
   isClicked ;
   features = [
-    {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: ''},
-    {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: ''},
+    {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: 'top-up-detail'},
+    {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: 'withdraw-detail'},
     {id: 3, name: 'SEND', icon: 'assets/icons/send.png',page: 'send-detail'},
     {id: 4, name: 'PAY', icon: 'assets/icons/debit-card.png',page: ''}
   ];
