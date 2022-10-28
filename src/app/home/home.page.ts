@@ -73,11 +73,13 @@ export class HomePage implements OnInit {
   ngOnInit(): void {
     this.view = [];
     const hist = JSON.parse(this.account.history);
-    hist.forEach((element,index) => {
-      if(index <2){
-        this.view.push(element);
-      }
-    });
+    if(hist!=null){
+      hist.forEach((element,index) => {
+        if(index <2){
+          this.view.push(element);
+        }
+      });
+    }
 
     console.log('view',this.view);
 
