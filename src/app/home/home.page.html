@@ -59,7 +59,7 @@
 
      <ion-row>
       <ion-col size="6" *ngFor="let menu of features">
-        <ion-card class="ion-text-center" class="RGB" lines="full" (click)="goToFeature(menu.page)">
+        <ion-card class="ion-text-center" class="RGB" lines="full" (click)="menu.page !== 'ke-camera' ? goToFeature(menu.page) : takeImage()">
           <ion-card-header>
             <div align="center">
               <ion-thumbnail>
