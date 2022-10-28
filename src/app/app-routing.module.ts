@@ -22,7 +22,17 @@ const routes: Routes = [
   {
     path: 'send-detail',
     loadChildren: () => import('./send-detail/send-detail.module').then( m => m.PayDetailPageModule)
-  },  {
+  },
+  {
+    path: 'top-up-detail',
+    loadChildren: () => import('./top-up-detail/top-up-detail.module').then( m => m.TopUpDetailPageModule)
+  },
+  {
+    path: 'withdraw-detail',
+    loadChildren: () => import('./withdraw-detail/withdraw-detail.module').then( m => m.WithdrawDetailPageModule)
+  },
+
+  {
     path: 'account-detail',
     loadChildren: () => import('./account-detail/account-detail.module').then( m => m.AccountDetailPageModule)
   },
