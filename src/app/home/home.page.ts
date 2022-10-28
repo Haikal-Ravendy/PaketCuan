@@ -50,6 +50,7 @@ export class HomePage implements OnInit {
     const hist = JSON.parse(this.account.history);
     console.log('history dalam JSON',hist);
     this.transactions = hist;
+    if(this.transactions!== null){
 
     if(this.transactions.length <2){
       this.removed = this.transactions;
@@ -58,6 +59,7 @@ export class HomePage implements OnInit {
     }
     else{
       this.removed = this.transactions.slice(0,2);
+    }
     }
   }
 
