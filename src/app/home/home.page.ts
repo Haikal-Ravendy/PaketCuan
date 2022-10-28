@@ -12,23 +12,13 @@ import { AccountService } from '../services/dao/account.service';
 })
 export class HomePage implements OnInit {
   isClicked ;
-
   features = [
     {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: 'top-up-detail'},
     {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: 'withdraw-detail'},
     {id: 3, name: 'SEND', icon: 'assets/icons/send.png',page: 'send-detail'},
-    {id: 4, name: 'SCAN QR', icon: 'assets/icons/barcode.png',page: 'ke-camera'}
+    {id: 4, name: 'PAY', icon: 'assets/icons/qr.jpg',page: 'ke-camera'}
   ];
 
-
-  promos = [
-    'https://bankmega.com/media/filer_public/b1/1c/b11caa26-309b-4ad4-a153-c30c19a6974d/makan_take-away-delivery.jpg',
-    'https://bankmega.com/media/filer_public/ff/07/ff07828a-a5c2-4580-9cd3-0106aa69ff03/bm_asset_yes_-_food_medan_bmnew.jpg',
-    'https://awsimages.detik.net.id/community/media/visual/2020/08/14/thumbnail-vod-2.png?w=700&q=90',
-    'https://bankmega.com/media/filer_public/82/1b/821b1b8b-728d-4e79-93d3-42e0496a6ff8/mbmexquisite02-bmnew.jpg',
-    'https://bankmega.com/media/filer_public/e3/a6/e3a6f139-abc8-494b-b5e4-93f4ba9ddc62/cbtlgen-bmnew.jpg',
-    'https://bankmega.com/media/filer_public/f7/8e/f78e2f4a-e2f5-4917-8b17-40e1ef9ff95d/portodormancymakan_bm01.jpg'
-  ];
 
   transactions;
   removed;
@@ -47,7 +37,7 @@ export class HomePage implements OnInit {
   sample: boolean = false;
 
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private accountService: AccountService) {
     this.account = this.router.getCurrentNavigation().extras.state;
     console.log(this.account);
     this.sample = true;
@@ -74,13 +64,12 @@ export class HomePage implements OnInit {
   ngOnInit(): void {
     this.view = [];
     const hist = JSON.parse(this.account.history);
-    if(hist!==null){
-    hist.forEach((element,index) => {
-      if(index <2){
-        this.view.push(element);
-      }
-
-    });
+    if(hist!=null){
+      hist.forEach((element,index) => {
+        if(index <2){
+          this.view.push(element);
+        }
+      });
     }
 
     console.log('view',this.view);
