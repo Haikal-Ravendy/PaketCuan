@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { shadow } from '@ionic/core/dist/types/utils/transition/ios.transition';
 import { Account } from 'src/entities/account';
+import { AccountDetailPage } from '../account-detail/account-detail.page';
+
+
 
 @Component({
   selector: 'app-home',
@@ -64,6 +67,12 @@ export class HomePage {
   goToFeature(url: string, account: Account){
     this.router.navigateByUrl(url,{state:account});
   }
+
+  goToDetail(){
+    this.router.navigate(['account-detail']);
+  }
+
+
 
   onClicked(){
     console.log('transaction 1', this.transactions);

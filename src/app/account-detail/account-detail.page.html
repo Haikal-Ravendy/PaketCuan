@@ -1,0 +1,15 @@
+<ion-header  class="ion-no-border">
+  <ion-item lines="none">
+    <ion-button fill="clear" color="light">
+      <ion-icon slot="icon-only" name="menu"></ion-icon>
+    </ion-button>
+    <ion-avatar class="ion-text-center"id="click-trigger">
+
+        <img [src]="account.avatar"/>
+    </ion-avatar>
+  </ion-item>
+</ion-header>
+<ion-row>
+    <ion-label class="Head" class="ion-padding" class="ion-text-center">{{account.name}}</ion-label>
+    <ion-chip color="light">Rp{{account.balance.toLocaleString('de-DE')}}</ion-chip>
+</ion-row>

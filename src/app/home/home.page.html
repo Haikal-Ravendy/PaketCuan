@@ -1,7 +1,7 @@
 <ion-header  class="ion-no-border">
   <ion-item lines="none">
     <ion-button fill="clear" color="light">
-      <ion-icon slot="icon-only" name="menu"></ion-icon>
+      <ion-icon name="settings-outline" (click)="goToDetail()"></ion-icon>
     </ion-button>
     <ion-avatar slot="end" id="click-trigger">
 
@@ -40,13 +40,13 @@
      </ion-row>
      </ion-grid>
 
-     <ion-slides class="Slides">
-      <ion-slide>
-        <img [src]="promos[0]" alt="" />
-      </ion-slide>
-    </ion-slides>
+      <ion-slides class="Slides">
+        <ion-slide>
+          <img [src]="promos[0]" alt="" />
+        </ion-slide>
+      </ion-slides>
 
-    <!-- <img class="Slides"[src]="promos[0]" alt="" /> -->
+      <!-- <img class="Slides"[src]="promos[0]" alt="" /> -->
 
      <ion-grid class="Grid1">
      <ion-row class="ion-margin-top">
@@ -57,26 +57,40 @@
         </ion-col>
      </ion-row>
 
-     <ion-slides [options]="slideOpt">
-      <ion-slide *ngFor="let hot of promos">
-        <ion-row>
-          <ion-slide size="6" *ngFor="let menu of features">
-            <ion-card class="ion-text-center" class="RGB" lines="full" (click)="goToFeature(menu.page,account)">
-              <ion-card-header>
-                <div align="center">
-                  <ion-thumbnail>
-                    <img [src]="menu.icon"/>
-                  </ion-thumbnail>
-                </div>
-              </ion-card-header>
-              <ion-card-content>
-                <ion-label color="dark">{{ menu.name }}</ion-label>
-              </ion-card-content>
-            </ion-card>
-          </ion-slide>
-        </ion-row>
-      </ion-slide>
-    </ion-slides>
+
+
+     <div class="scrollmenu"  size="6" *ngFor="let menu of features">
+
+              <ion-card  class="RGB" lines="full" style="height: 100px !important; object-fit: cover;"(click)="goToFeature(menu.page,account)">
+                <ion-card-header>
+                  <div align="center">
+                       <ion-col>
+                          <img [src]="menu.icon"/>
+                       </ion-col>
+                          <ion-card-content>
+                            <ion-label color="dark">{{ menu.name }}</ion-label>
+                          </ion-card-content>
+
+                    </div>
+                  </ion-card-header>
+                </ion-card>
+
+
+          </div>
+
+              <!-- <ion-card class="ion-text-center" class="RGB" lines="full" style="height: 128px !important; object-fit: cover;"(click)="goToFeature(menu.page,account)">
+                  <ion-card-header>
+                    <div align="center">
+                      <ion-col>
+                        <img [src]="menu.icon"/>
+                      </ion-col>
+                    </div>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-label color="dark">{{ menu.name }}</ion-label>
+                  <!-- </ion-card-content> -->
+
+
 
 
      <ion-list>

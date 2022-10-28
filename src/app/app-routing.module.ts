@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'send-detail',
     loadChildren: () => import('./send-detail/send-detail.module').then( m => m.PayDetailPageModule)
+  },  {
+    path: 'account-detail',
+    loadChildren: () => import('./account-detail/account-detail.module').then( m => m.AccountDetailPageModule)
   },
+
 
 
 ];
