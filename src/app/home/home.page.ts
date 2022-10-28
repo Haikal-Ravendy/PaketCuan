@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { shadow } from '@ionic/core/dist/types/utils/transition/ios.transition';
 import { Account } from 'src/entities/account';
+import { AccountService } from '../services/dao/account.service';
 
 @Component({
   selector: 'app-home',
@@ -82,12 +83,12 @@ export class HomePage implements OnInit {
 
   }
 
-  goToFeature(url: string, account: Account){
-    this.router.navigateByUrl(url,{state:account});
+  goToFeature(url: string,){
+    this.router.navigateByUrl(url,{state:this.account});
   }
 
   goToDetail(){
-    this.router.navigate(['account-detail']);
+    this.router.navigateByUrl('account-detail',{state:this.account});
   }
 
 
