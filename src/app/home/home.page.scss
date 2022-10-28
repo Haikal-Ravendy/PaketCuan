@@ -7,22 +7,18 @@ ion-header {
 
       ion-avatar{
         background: white;
-        ion-popover{
-          ng-template{
-            ion-content{
-              color: aqua;
-              padding-top: 10px;
-
-            }
-          }
-
-
-        }
-
-
       }
   }
 }
+
+ion-popover {
+  --background: #ffc20e;
+  --backdrop-opacity: 0.6;
+  --box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.6);
+  --color: black;
+  --width: 300px;
+}
+
 .Head{
   color: aqua;
    padding-top: 10px;
@@ -40,7 +36,7 @@ ion-content {
       margin-left: -14vh;
       height: 45vh;
       width: 150%;
-      background: linear-gradient(90deg, var(--ion-color-success)10%,var(--ion-color-danger)100%);
+      background: linear-gradient(90deg, #ffc20e 10%,#e25826 100%);
       border-radius: 0 0 50% 50% ;
   }
 
@@ -80,8 +76,8 @@ ion-content {
       font-weight: bold;
     }
     ion-card{
-      box-shadow: -1px 11px 13px -6px rgb(9, 121, 24);
-      border: 1px solid rgb(19, 211, 45);
+      box-shadow: -1px 11px 13px -6px #ffc20e;
+      border: 1px solid #ffc20e;
       border-radius: 10px !important;
       margin: 8px 0;
 
@@ -122,12 +118,7 @@ ion-content {
     top: 22vh;
 
   }
-  ion-grid.Grid1{
-    position: relative;
-    top: -90px;
-    left: 1px;
-    width:96vw;
-  }
+
   .RGB{
     background-color: linear-gradient(90deg, var(--ion-color-success)10%,var(--ion-color-danger)100%);
   }
