@@ -25,5 +25,8 @@ export class Account{
   @Column()
   cardNumber: number;
 
+  @Column({nullable:true})
+  history?: string;
+
 
 }
