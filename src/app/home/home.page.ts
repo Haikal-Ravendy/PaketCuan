@@ -12,6 +12,7 @@ import { AccountService } from '../services/dao/account.service';
 })
 export class HomePage implements OnInit {
   isClicked ;
+
   features = [
     {id: 1, name: 'TOP UP', icon: 'assets/icons/topup.png',page: 'top-up-detail'},
     {id: 2, name: 'WITHDRAW', icon: 'assets/icons/withdrawal.png',page: 'withdraw-detail'},
@@ -46,7 +47,7 @@ export class HomePage implements OnInit {
   sample: boolean = false;
 
 
-  constructor(private router: Router, private accountService: AccountService) {
+  constructor(private router: Router) {
     this.account = this.router.getCurrentNavigation().extras.state;
     console.log(this.account);
     this.sample = true;
@@ -73,11 +74,14 @@ export class HomePage implements OnInit {
   ngOnInit(): void {
     this.view = [];
     const hist = JSON.parse(this.account.history);
+    if(hist!==null){
     hist.forEach((element,index) => {
       if(index <2){
         this.view.push(element);
       }
+
     });
+    }
 
     console.log('view',this.view);
 
@@ -89,7 +93,8 @@ export class HomePage implements OnInit {
   }
 
   goToDetail(){
-    this.router.navigateByUrl('account-detail',{state:this.account});
+    console.log('on detail menu');
+    this.router.navigate(['account-detail'], {state:this.account});
   }
 
 

@@ -1,14 +1,14 @@
 <ion-header class="ion-no-border">
   <ion-item lines="none">
     <ion-button fill="clear" color="light" (click)="goToDetail()">
-      <ion-icon name="settings-outline"></ion-icon>
+      <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
     </ion-button>
     <ion-avatar slot="end" id="click-trigger">
-      <img [src]="account.avatar" />
+        <img [src]="account.avatar"/>
     </ion-avatar>
   </ion-item>
 </ion-header>
-<ion-popover style="padding-top: 10px;" trigger="click-trigger" triggerAction="click">
+<ion-popover style="padding-top: 10px;" trigger="click-trigger" triggerAction="click" alignment="center">
   <ng-template>
     <ion-button fill="clear" class="Head" class="ion-text-center">{{account.name}}</ion-button>
     <ion-button color="danger" fill="clear" href="login">LOGOUT </ion-button>
