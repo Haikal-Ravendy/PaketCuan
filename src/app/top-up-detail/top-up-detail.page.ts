@@ -73,9 +73,9 @@ export class TopUpDetailPage implements OnInit {
   submit(){
     console.log('value ', this.value);
 
-    this.account.balance += this.value;
+    this.account.balance -= this.value;
     const times = this.formatTime(new Date());
-    const history = {name: 'Top up', time: times, amount: this.value,color: 'success'};
+    const history = {name: 'Top up sebesar Rp. ' + this.amount, time: times, amount: this.value,color: 'danger'};
     if(this.account.history.length === 0){
 
       const histories = [history];

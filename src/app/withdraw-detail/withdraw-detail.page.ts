@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from '../services/dao/account.service';
@@ -71,7 +72,7 @@ export class WithdrawDetailPage implements OnInit {
         else{
           this.account.balance -= this.amount;
           const times = this.formatTime(new Date());
-          const history = {name: 'Withdraw money with the amount of ' + this.amount, time: times, amount: this.amount,color: 'success'};
+          const history = {name: 'Withdraw money with the amount of Rp. ' + this.amount.toLocaleString('de-DE'), time: times, amount: this.amount,color: 'danger'};
           if(this.account.history.length === 0){
 
             const histories = [history];

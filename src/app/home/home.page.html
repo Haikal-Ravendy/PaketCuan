@@ -10,7 +10,7 @@
 </ion-header>
 <ion-popover style="padding-top: 10px;" trigger="click-trigger" triggerAction="click" alignment="center">
   <ng-template>
-    <ion-button fill="clear" class="Head" class="ion-text-center">{{account.name}}</ion-button>
+    <ion-button fill="clear" class="Head" class="ion-text-center" >{{account.name}}</ion-button>
     <ion-button color="danger" fill="clear" href="login">LOGOUT </ion-button>
   </ng-template>
 </ion-popover>
@@ -29,11 +29,11 @@
       </ion-col>
 
       <ion-col size="6" class="ion-text-right">
-        <ion-button color="light" (click)="goToFeature('top-up-detail')">
-          <ion-text>
-            Top Up
+        <ion-button color="light">
+          <ion-text style="font-size: 10px;">
+            <div style="font-size: 5px;">Selamat datang</div>
+            {{account.name}}
           </ion-text>
-          <ion-icon slot="end" name="add"></ion-icon>
         </ion-button>
       </ion-col>
     </ion-row>
@@ -76,7 +76,7 @@
           </p>
         </ion-label>
         <ion-text slot="end" [color]="trans.color">
-          <strong>Rp. {{trans.amount.toLocaleString('de-DE')}}</strong>
+          <strong>{{trans.color==='danger' ? '- ':'+ '}}Rp. {{trans.amount.toLocaleString('de-DE')}}</strong>
         </ion-text>
       </ion-item>
     </ion-list>

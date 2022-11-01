@@ -1,8 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar style="font-weight:bold;">
     <ion-button fill="clear" (click)="goBack()">
       <ion-icon color="dark" slot="icon-only" name="chevron-back-circle-outline"></ion-icon>
     </ion-button>
+    <ion-text class="ion-text-center ion-padding"> Withdraw</ion-text>
   </ion-toolbar>
 </ion-header>
 
@@ -17,7 +18,7 @@
         <ion-label>{{account.name}}</ion-label>
         <ion-label>Card Number: <span>{{account.cardNumber}}</span></ion-label>
         <ion-card-title class="ion-text-start" style="font-weight: bold;">
-          Saldo: Rp.<span>{{account.balance}}</span>
+          Saldo: Rp.<span>{{account.balance.toLocaleString('de-DE')}}</span>
         </ion-card-title>
       </div>
     </ion-item>
